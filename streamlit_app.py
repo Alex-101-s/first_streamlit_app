@@ -64,7 +64,6 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 
 
 
-streamlit.stop()
 # import snowflake.connector
 streamlit.header("The fruit load list contains")
 # my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
@@ -80,6 +79,10 @@ if streamlit.button('Get fruit load list'):
     my_data_row = get_fruit_load_list()
 # streamlit.header("The fruit load list contains")
     streamlit.dataframe(my_data_row)
+
+
+streamlit.stop()
+
 
 add_my_fruit = streamlit.text_input('what fruit would you like to add','jackfruit')
 streamlit.write('thanks for adding',add_my_fruit)
