@@ -1,13 +1,18 @@
 
 
 import streamlit  # any small spelling mistake it won't relflect on streamlit
+import pandas as pd
+import requests
+import snowflake.connector
+from urllib.error import  URlError
+
 streamlit.title('My parents New healthy dinner')   
 streamlit.header('🥣 breakfast menu')
 streamlit.text('🥗 omega3 and Blueberry oatmeals')
 streamlit.text('🐔🥑🍞kale, spinach and Rocket')
 
 
-import pandas as pd
+# import pandas as pd
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')  #Choose the Fruit Name Column as the Index
 
@@ -31,7 +36,7 @@ streamlit.header("Fruityvice Fruit Advice!")
 fruit_choice = streamlit.text_input('What fruit would you like information about?','watermelon')
 streamlit.write('The user entered ', fruit_choice)
 
-import requests
+# import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 #streamlit.text(fruityvice_response)
 # streamlit.text(fruityvice_response.json())
@@ -44,8 +49,8 @@ streamlit.dataframe(fruityvice_normalized)
 
 
 
-
-import snowflake.connector
+streamlit.stop()
+# import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from pc_rivery_db.public.fruit_load_list")
