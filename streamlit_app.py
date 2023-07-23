@@ -1,7 +1,7 @@
 
 
 import streamlit  # any small spelling mistake it won't relflect on streamlit
-import pandas as pd
+import pandas 
 import requests
 import snowflake.connector
 from urllib.error import  URlError
@@ -13,7 +13,7 @@ streamlit.text('🐔🥑🍞kale, spinach and Rocket')
 
 
 # import pandas as pd
-my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')  #Choose the Fruit Name Column as the Index
 
 
@@ -43,7 +43,7 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 
 
 # write your own comment -what does the next line do? 
-fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
 streamlit.dataframe(fruityvice_normalized)
 
