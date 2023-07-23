@@ -1,5 +1,4 @@
 ######
-import snowflake.connector
- snowflake-connector-python
 
+snowflake-connector-python
 cffi==1.15.0
